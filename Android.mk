@@ -42,6 +42,8 @@ include $(BUILD_JAVA_LIBRARY)
 
 # Include subdirectory makefiles
 # ============================================================
-include $(call all-makefiles-under,$(LOCAL_PATH))
+ifeq ($(EXCLUDE_TELEPHONY_TESTS),)
+    include $(call all-makefiles-under,$(LOCAL_PATH))
+endif
 
 endif # JAVA platform
